@@ -1,0 +1,26 @@
+/* Estiliza o body para centralizar o conteúdo */
+.titulo {
+    font-family: Arial;
+    background-color: black; /* Fundo preto */
+    color: white;           /* Texto amarelo */
+    margin: 0;               /* Remove margens padrão */
+    height: 100vh;           /* Altura da viewport */
+    display: flex;           /* Usa flexbox para layout */
+    flex-direction: column;  /* Alinha itens em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    text-align: center;      
+  
+
+
+}
+
+
+.img {
+    display: flex;
+        justify-content: center;
+        align-items: center;     
+        height: 100vh;        
+        margin: 0;            
+
+}
