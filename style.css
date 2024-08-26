@@ -1,26 +1,60 @@
-/* Estiliza o body para centralizar o conteúdo */
-.titulo {
-    font-family: Arial;
-    background-color: black; /* Fundo preto */
-    color: white;           /* Texto amarelo */
-    margin: 0;               /* Remove margens padrão */
-    height: 100vh;           /* Altura da viewport */
-    display: flex;           /* Usa flexbox para layout */
-    flex-direction: column;  /* Alinha itens em coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center;     /* Centraliza horizontalmente */
-    text-align: center;      
-  
-
-
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Altura total da viewport */
+    overflow: hidden; /* Remove barras de rolagem */
 }
 
-
-.img {
+/*parte superior do sirte */
+.top-half { 
+    background-color: #000000; /* Preto para fallback */
+    height: 50%;
+    width: 100%;
     display: flex;
-        justify-content: center;
-        align-items: center;     
-        height: 100vh;        
-        margin: 0;            
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF; /* Texto branco para contraste */
+    text-align: center;
+    position: relative; /* Necessário para o posicionamento absoluto do pseudo-elemento */
+    background-image: url('pngtree-3d-rendering-of-technology-and-website-development-picture-image_4044017.jpg'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem dentro da área */
+}
+.top-half::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Camada preta semi-transparente */
+    z-index: 1; /* Garante que a camada preta fique sobre a imagem */
+}
 
+/*parte inferior do site*/
+.bottom-half {
+    background-color: #C0C0C0; /* Preto */
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF; /* Texto branco para contraste */
+    text-align: center;
+}
+/*circulo no meio do site*/
+.circle {
+    width: 150px; /* Largura do círculo */
+    height: 150px; /* Altura do círculo */
+    background-color: #000000; /* Cor de fundo do círculo */
+    border: 5px solid #FFFFFF; /* Borda branca */
+    border-radius: 50%; /* Torna o elemento um círculo */
+    position: absolute; /* Posiciona o círculo de forma absoluta */
+    top: 50%; /* Posiciona o círculo verticalmente no meio da tela */
+    left: 50%; /* Posiciona o círculo horizontalmente no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta a posição para centralizar o círculo */
+    z-index: 10; /* Garante que o círculo esteja acima dos outros elementos */
+    background-image: url('foto2.jfif'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir todo o círculo */
+    background-position: center; /* Centraliza a imagem dentro do círculo */
 }
