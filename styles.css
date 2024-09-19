@@ -1,0 +1,344 @@
+* {
+    box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Altura total da tela */
+    overflow: auto; /* Permite a rolagem */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 250vh; /* Altura total para permitir rolagem */
+    overflow-y: scroll; /* Permite rolagem vertical */
+    -ms-overflow-style: none; /* Oculta a barra de rolagem no IE e Edge */
+    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+}
+
+.container::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem no Chrome, Safari e Opera */
+}
+
+.navbar {
+    background-color: #333; /* Cor de fundo da barra de navegação */
+    overflow: hidden; /* Esconde o conteúdo que excede a altura */
+}
+.circle {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    width: 120px;
+    height: 120px;
+    background-color: black;
+    border: 5px solid white;
+    border-radius: 50%;
+    z-index: 9999;
+    background-image: url('fotoperfil.jfif');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    margin: 0; /* Remove a margem */
+    padding: 0; /* Remove o padding */
+    display: flex; /* Usa flexbox para disposição horizontal */
+}
+
+.navbar li {
+    flex: 1; /* Cada item ocupa espaço igual */
+}
+
+.navbar a {
+    display: block; /* Faz os links ocuparem todo o espaço do item */
+    color: #2196F3; /* Cor azul */
+    text-align: center; /* Centraliza o texto */
+    padding: 14px 16px; /* Espaçamento interno */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.navbar a:hover {
+    background-color: #575757; /* Cor de fundo ao passar o mouse */
+}
+
+
+
+
+.box {
+    flex: 0 0 50vh; /* Cada div ocupa 50% da altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none; /* Remove o sombreamento para evitar separação */
+    text-align: left; /* Alinhamento à esquerda */
+    margin: 0; /* Sem margens */
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    padding: 20px; /* Adiciona espaçamento interno */
+}
+
+.box1 {
+    background-color: #4CAF50; /* Verde */
+    background-image: url('f.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a área da div */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+}
+
+.box2 {
+    background-color: #D3D3D3; /* Cinza claro */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    padding: 20px; /* Adiciona espaçamento interno */
+    position: relative; /* Para o posicionamento de elementos internos */
+}
+
+.cursos-message {
+    position: fixed; /* Fixa o texto em relação à viewport */
+    top: 20%; /* Ajuste a posição vertical */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo um pouco mais escuro */
+    color: #fff; /* Cor do texto */
+    padding: 15px 25px; /* Aumenta o espaçamento interno */
+    border-radius: 12px; /* Bordas arredondadas */
+    font-size: 24px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.5s ease-out; /* Transição suave */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.3); /* Sombreamento aprimorado */
+    z-index: 1000; /* Garante que o texto fique acima dos outros elementos */
+}
+
+.cursos-message.show {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Remove qualquer transformação de deslocamento */
+}
+
+.progress-container {
+    width: 30%; /* Largura da barra */
+    background-color: #e0e0e0; /* Cor de fundo da barra */
+    border-radius: 25px; /* Bordas arredondadas */
+    margin: 20px 0; /* Margem superior e inferior */
+    position: absolute; /* Mantém a barra fixa na div */
+    right: 0; /* Alinha à direita */
+    top: 90px; /* Ajuste este valor para mover a barra para cima */
+    display: flex; /* Usar flexbox para alinhar o conteúdo dentro */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.progress-bar {
+    height: 30px; /* Altura da barra */
+    background-color: #2196F3; /* Cor azul */
+    text-align: center; /* Alinha texto ao centro */
+    line-height: 30px; /* Centraliza verticalmente o texto */
+    color: white; /* Cor do texto */
+    border-radius: 25px; /* Bordas arredondadas da barra */
+    width: 0; /* Começa com 0% de largura */
+    max-width: 100%; /* Garante que não ultrapasse o contêiner */
+    transition: width 1s ease; /* Animação de transição */
+}
+
+.logo {
+    width: 140px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 10px; /* Espaçamento acima da logo */
+    display: block; /* Para que a logo ocupe uma nova linha */
+    position: absolute; /* Para posicionamento */
+    right: 120px; /* Ajuste este valor para mover mais para a direita */
+    top: 160px; /* Aumente este valor para descer mais a logo */
+    left: auto; /* Remove a centralização horizontal */
+    transform: none; /* Remove a transformação */
+}
+
+.box3 {
+    background-color: #D3D3D3; /* Cinza claro */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organizar o conteúdo em coluna */
+    align-items: flex-start; /* Alinhar o conteúdo à esquerda */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: left; /* Alinhar o texto à esquerda */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma leve sombra */
+    margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
+}
+
+.progress-item {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Alinhar verticalmente */
+    margin-bottom: 20px; /* Espaçamento entre itens */
+}
+
+.status-icon {
+    width: 80px; /* Largura do ícone aumentada */
+    height: 40px; /* Altura do ícone aumentada */
+    margin-right: 15px; /* Espaçamento à direita do ícone */
+}
+
+.status-text {
+    font-weight: bold; /* Destacar o texto do status */
+    margin-left: 10px; /* Espaçamento à esquerda do texto do status */
+    transition: color 0.3s ease; /* Transição suave para a cor do texto */
+}
+
+.status-text:before {
+    content: ''; /* Conteúdo vazio antes do texto */
+    display: inline-block; /* Faz o conteúdo se comportar como um bloco */
+    width: 12px; /* Largura do ponto aumentada */
+    height: 12px; /* Altura do ponto aumentada */
+    border-radius: 50%; /* Faz o ponto ser redondo */
+    margin-right: 5px; /* Espaçamento à direita do ponto */
+    transition: background-color 0.3s ease; /* Transição suave para a cor do ponto */
+}
+
+.status-text.concluido:before {
+    background-color: #4CAF50; /* Verde para concluído */
+}
+
+.status-text.andamento:before {
+    background-color: #FFC107; /* Amarelo para andamento */
+}
+
+.progress-item:hover .status-text {
+    color: #2196F3; /* Cor do texto ao passar o mouse */
+    font-size: 20px; /* Aumenta o tamanho da fonte ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do texto ao passar o mouse */
+}
+
+.box3 p:hover {
+    transform: translateY(-5px); /* Move o texto 5px para cima ao passar o mouse */
+}
+
+.logo-qualificacoes {
+    width: 120px; /* Tamanho da imagem */
+    height: auto; /* Manter a proporção */
+    display: block; /* Garantir que a imagem seja exibida corretamente */
+    right: 120px; /* Ajuste este valor para mover mais para a direita */
+}
+
+.box4 {
+    background-color: #D3D3D3; /* Cinza claro */
+    color: #333; /* Cor do texto, ajustada para melhor contraste */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organizar o conteúdo em coluna */
+    justify-content: center; /* Centralizar o conteúdo verticalmente */
+    align-items: center; /* Centralizar o conteúdo horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+    text-align: center; /* Centralizar o texto */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma leve sombra */
+    margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
+}
+
+.project-placeholder {
+    margin-top: 20px; /* Espaçamento acima da área de placeholder */
+    padding: 10px; /* Espaçamento interno */
+    border: 2px dashed #333; /* Borda em estilo tracejado */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 100%; /* Largura completa */
+    max-width: 600px; /* Largura máxima */
+    background-color: #fff; /* Fundo branco para contraste */
+    color: #333; /* Cor do texto */
+    font-style: italic; /* Estilo itálico para o texto */
+}
+
+.github-button {
+    display: inline-block; /* Fazer o link se comportar como um botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    margin: 20px 0; /* Margem superior e inferior */
+    background-color: #fff; /* Fundo branco */
+    color: #007bff; /* Cor do texto azul (tom padrão azul) */
+    text-decoration: none; /* Remover sublinhado do link */
+    border: 2px solid #007bff; /* Borda azul (tom padrão azul) */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    transition: color 0.3s ease, border-color 0.3s ease; /* Transição suave para cor do texto e borda */
+}
+
+.github-button:hover {
+    color: #fff; /* Cor do texto branca ao passar o mouse */
+    background-color: #007bff; /* Cor de fundo azul ao passar o mouse */
+    border-color: #007bff; /* Cor da borda azul ao passar o mouse */
+}
+
+.box5 {
+    background-color: #D3D3D3; /* Cor de fundo cinza claro */
+    display: flex; /* Usar flexbox */
+    flex-direction: row; /* Organizar o conteúdo em linha */
+    justify-content: flex-start; /* Alinhar o conteúdo no topo */
+    align-items: center; /* Alinhar o conteúdo verticalmente no centro */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Mesma fonte que a div2 */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: left; /* Alinhamento à esquerda */
+    gap: 20px; /* Espaço entre a imagem e o texto */
+    margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
+}
+
+.box5 p {
+    transition: transform 0.3s ease; /* Suaviza a animação */
+}
+
+.box5 p:hover {
+    transform: translateY(-5px); /* Move o texto 5px para cima ao passar o mouse */
+}
+
+#typingEffect {
+    font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: black; /* Cor do texto */
+    white-space: pre-wrap; /* Permite que o texto mantenha quebras de linha */
+    overflow-wrap: break-word; /* Quebra palavras longas para a próxima linha */
+    max-width: 400px; /* Limita a largura do texto */
+    margin-left: 20px; /* Mova o texto para a esquerda, ajuste o valor conforme necessário */
+    margin-right: auto; /* Garante que a margem direita seja automática */
+    margin-top: 30px; /* Ajuste este valor para descer o texto */
+    transition: transform 0.3s ease; /* Adiciona transição suave */
+}
+
+#typingEffect:hover {
+    transform: translateY(-5px); /* Move o texto levemente para cima ao passar o mouse */
+}
+.box6 {
+    background-color: #f4f4f4; /* Cor de fundo cinza claro */
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px; /* Margem externa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+    color: #333; /* Cor do texto */
+    text-align: left; /* Alinhamento do texto à esquerda */
+}
+
+.box6 h3 {
+    font-size: 24px; /* Tamanho da fonte para o título */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color: #333; /* Cor do título */
+}
+
+.box6 p {
+    font-size: 18px; /* Tamanho da fonte para os parágrafos */
+    margin: 10px 0; /* Espaçamento acima e abaixo dos parágrafos */
+}
+
+.box6 a {
+    color: #2196F3; /* Cor azul para os links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.box6 a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+} 
