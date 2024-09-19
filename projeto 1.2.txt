@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Suave com Divs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="circle"></div>
+        <div class="box box2">
+            <div id="typingEffect"></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">60%</div>
+            </div>
+            <img src="faesa.png" alt="Logo" class="logo"> <!-- Adicione esta linha -->
+        </div>
+        <div class="box box3">Div 3</div>
+        <div class="box box4">Div 4</div>
+        <div class="box box5">Div 5</div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html> html
+* {
+    box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+}
+
+body, html {
+    margin: 0;
+    height: 100%; /* Altura total da tela */
+}
+
+.container {
+    display: flex; /* Usar flexbox para alinhar as divs verticalmente */
+    flex-direction: column; /* Alinha as divs em coluna */
+    width: 100%; /* Preencher toda a largura da tela */
+    height: 250vh; /* Altura total para permitir rolagem */
+    overflow-y: auto; /* Permite rolagem vertical */
+}
+
+.box {
+    flex: 0 0 50vh; /* Cada div ocupa 50% da altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none; /* Remove o sombreamento para evitar separação */
+    text-align: left; /* Alinhamento à esquerda */
+    margin: 0; /* Sem margens */
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    padding: 20px; /* Adiciona espaçamento interno */
+}
+
+.box1 {
+    background-color: #4CAF50; /* Verde */
+    background-image: url('f.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a área da div */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+}
+
+.box2 {
+    background-color: #D3D3D3; /* Cinza claro */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    padding: 20px; /* Adiciona espaçamento interno */
+    position: relative; /* Para o posicionamento de elementos internos */
+}
+
+.progress-container {
+    width: 30%; /* Largura da barra */
+    background-color: #e0e0e0; /* Cor de fundo da barra */
+    border-radius: 25px; /* Bordas arredondadas */
+    margin: 20px 0; /* Margem superior e inferior */
+    position: absolute; /* Mantém a barra fixa na div */
+    right: 0; /* Alinha à direita */
+    top: 90px; /* Ajuste este valor para mover a barra para cima */
+    display: flex; /* Usar flexbox para alinhar o conteúdo dentro */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.progress-bar {
+    height: 30px; /* Altura da barra */
+    background-color: #2196F3; /* Cor azul */
+    text-align: center; /* Alinha texto ao centro */
+    line-height: 30px; /* Centraliza verticalmente o texto */
+    color: white; /* Cor do texto */
+    border-radius: 25px; /* Bordas arredondadas da barra */
+    width: 0; /* Começa com 0% de largura */
+    max-width: 100%; /* Garante que não ultrapasse o contêiner */
+    transition: width 1s ease; /* Animação de transição */
+}
+
+.logo {
+    width: 140px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 10px; /* Espaçamento acima da logo */
+    display: block; /* Para que a logo ocupe uma nova linha */
+    position: absolute; /* Para posicionamento */
+    right: 120px; /* Ajuste este valor para mover mais para a direita */
+    top: 160px; /* Aumente este valor para descer mais a logo */
+    left: auto; /* Remove a centralização horizontal */
+    transform: none; /* Remove a transformação */
+}
+
+.box3 {
+    background-color: #D3D3D3; /* Cinza claro */
+}
+
+.box4 {
+    background-color: #F44336; /* Vermelho */
+}
+
+.box5 {
+    background-color: #9C27B0; /* Roxo */
+}
+
+.circle {
+    position: absolute; /* Posição absoluta para o círculo */
+    top: 50vh; /* Posiciona o círculo na linha entre a Div 1 e a Div 2 */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar */
+    width: 120px; /* Largura do círculo */
+    height: 120px; /* Altura do círculo */
+    background-color: black; /* Cor de fundo do círculo (opcional) */
+    border: 5px solid white; /* Borda branca */
+    border-radius: 50%; /* Faz o círculo ser redondo */
+    z-index: 1; /* Garante que o círculo fique acima das divs */
+    background-image: url('fotoperfil.jfif'); /* Imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir todo o círculo */
+    background-position: center; /* Centraliza a imagem */
+}
+
+#typingEffect {
+    font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: black; /* Cor do texto */
+    white-space: pre-wrap; /* Permite que o texto mantenha quebras de linha */
+    overflow-wrap: break-word; /* Quebra palavras longas para a próxima linha */
+    max-width: 400px; /* Limita a largura do texto */
+    margin-left: 20px; /* Mova o texto para a esquerda, ajuste o valor conforme necessário */
+    margin-right: auto; /* Garante que a margem direita seja automática */
+    margin-top: 30px; /* Ajuste este valor para descer o texto */
+    transition: transform 0.3s ease; /* Adiciona transição suave */
+}
+
+#typingEffect:hover {
+    transform: translateY(-5px); /* Move o texto levemente para cima ao passar o mouse */
+}
+css
+const text = "Olá, sou Matheus Castro, tenho 25 anos e trabalho como Técnico de Suporte na Mindworks,|atendendo a Cesan há 3 anos. Sou formado em Técnico de Informática pelo Senac e estou no 3º|período de Análise e Desenvolvimento de Sistemas na FAESA.";
+let index = 0;
+const typingEffectElement = document.getElementById("typingEffect");
+
+function type() {
+    if (index < text.length) {
+        const char = text.charAt(index);
+        if (char === '|') {
+            typingEffectElement.innerHTML += '<br>'; // Substitui | por uma quebra de linha
+        } else {
+            typingEffectElement.innerHTML += char; // Adiciona o caractere normal
+        }
+        index++;
+        setTimeout(type, 20); // Ajuste a velocidade do efeito aqui
+    }
+}
+
+type();
+
+const progressBar = document.getElementById('progressBar');
+
+function animateProgressBar() {
+    let width = 0;
+    const targetWidth = 60; // Percentual de preenchimento desejado
+
+    const interval = setInterval(() => {
+        if (width >= targetWidth) {
+            clearInterval(interval);
+        } else {
+            width++;
+            progressBar.style.width = width + '%'; // Atualiza a largura da barra
+            progressBar.textContent = width + '%'; // Atualiza o texto da barra
+        }
+    }, 20); // Ajuste a velocidade do aumento
+}
+
+animateProgressBar();
+ js

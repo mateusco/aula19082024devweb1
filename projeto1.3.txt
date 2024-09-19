@@ -1,26 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Suave com Divs</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Certifique-se de que o caminho está correto -->
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#qualificacoes">Qualificações</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="circle"></div>
+        <div class="box box2">
+            <div id="typingEffect"></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">60%</div>
+            </div>
+            <img src="faesa.png" alt="Logo" class="logo">
+        </div>
+        <div class="box box3">
+            <div class="progress-item">
+                <img src="senac.png" alt="Concluído" class="status-icon">
+                <p>Técnico de Informática - Senac</p>
+                <div class="status-text concluido">Concluído</div>
+            </div>
+            <div class="progress-item">
+                <img src="faesa.png" alt="Em Andamento" class="status-icon">
+                <p>Cursando Análise e Desenvolvimento de Sistemas na FAESA - 3º período</p>
+                <div class="status-text andamento">Em Andamento</div>
+            </div>
+            <div class="progress-item">
+                <img src="udemy-new-20212512-Photoroom.png" alt="Concluído" class="status-icon">
+                <p>MD100 - Udemy</p>
+                <div class="status-text concluido">Concluído</div>
+            </div>
+        </div>
+        <div class="box box4">
+            <h3>Projetos</h3>
+            <p>Estou atualmente trabalhando em alguns projetos interessantes. Em breve, esta seção será atualizada com detalhes e links para projetos reais. Enquanto isso, você pode conferir o meu trabalho no GitHub.</p>
+            <a href="https://github.com/seu-usuario" target="_blank" class="github-button">Visite meu GitHub</a>
+        </div>
+        <div class="box box5">
+            <p>Empresa: Mindworks Informática LTDA - Cargo: Estagiário (De Julho/2021 a Agosto/2021)</p>
+            <p>Empresa: Mindworks Informática LTDA - Cargo: Técnico Suporte II (De Agosto/2022 a Setembro/2024)</p>
+            <img src="LOGO-NOVA-MINDWORKS-Photoroom.png" alt="Logo Empresa" class="logo-qualificacoes">
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Certifique-se de que o caminho está correto -->
+</body>
+</html> html
 * {
     box-sizing: border-box; /* Inclui padding e border na largura/altura total */
 }
 
-html, body {
+body, html {
     margin: 0;
-    padding: 0;
     height: 100%; /* Altura total da tela */
-    overflow: auto; /* Permite a rolagem */
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 250vh; /* Altura total para permitir rolagem */
-    overflow-y: scroll; /* Permite rolagem vertical */
-    -ms-overflow-style: none; /* Oculta a barra de rolagem no IE e Edge */
-    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
-}
-
-.container::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem no Chrome, Safari e Opera */
+    font-family: 'Roboto', sans-serif; /* Usando a fonte Roboto */
 }
 
 .navbar {
@@ -51,8 +97,13 @@ html, body {
     background-color: #575757; /* Cor de fundo ao passar o mouse */
 }
 
-
-
+.container {
+    display: flex; /* Usar flexbox para alinhar as divs verticalmente */
+    flex-direction: column; /* Alinha as divs em coluna */
+    width: 100%; /* Preencher toda a largura da tela */
+    height: 250vh; /* Altura total para permitir rolagem */
+    overflow-y: auto; /* Permite rolagem vertical */
+}
 
 .box {
     flex: 0 0 50vh; /* Cada div ocupa 50% da altura da tela */
@@ -123,6 +174,18 @@ html, body {
 }
 
 .box3 {
+    background-color: #D3D3D3; /* Cor de fundo cinza claro */
+    display: flex; /* Usar flexbox */
+    flex-direction: row; /* Organizar o conteúdo em linha */
+    justify-content: flex-start; /* Alinhar o conteúdo no topo */
+    align-items: center; /* Alinhar o conteúdo verticalmente no centro */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Mesma fonte que a div2 */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: left; /* Alinhamento à esquerda */
+    gap: 20px; /* Espaço entre a imagem e o texto */
+}
+.box3 {
     background-color: #D3D3D3; /* Cinza claro */
     display: flex; /* Usar flexbox */
     flex-direction: column; /* Organizar o conteúdo em coluna */
@@ -133,7 +196,7 @@ html, body {
     text-align: left; /* Alinhar o texto à esquerda */
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma leve sombra */
-    margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
+    margin: 2px; /* Margem externa para separar das outras divs */
 }
 
 .progress-item {
@@ -188,7 +251,6 @@ html, body {
     display: block; /* Garantir que a imagem seja exibida corretamente */
     right: 120px; /* Ajuste este valor para mover mais para a direita */
 }
-
 .box4 {
     background-color: #D3D3D3; /* Cinza claro */
     color: #333; /* Cor do texto, ajustada para melhor contraste */
@@ -201,7 +263,6 @@ html, body {
     text-align: center; /* Centralizar o texto */
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma leve sombra */
-    margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
 }
 
 .project-placeholder {
@@ -247,15 +308,29 @@ html, body {
     font-size: 18px; /* Tamanho da fonte */
     text-align: left; /* Alinhamento à esquerda */
     gap: 20px; /* Espaço entre a imagem e o texto */
-    margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
 }
-
 .box5 p {
     transition: transform 0.3s ease; /* Suaviza a animação */
 }
 
 .box5 p:hover {
     transform: translateY(-5px); /* Move o texto 5px para cima ao passar o mouse */
+}
+
+.circle {
+    position: absolute; /* Posição absoluta para o círculo */
+    top: calc(50vh + 50px); /* Ajuste para posicionar na linha de separação */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar */
+    width: 120px; /* Largura do círculo */
+    height: 120px; /* Altura do círculo */
+    background-color: black; /* Cor de fundo do círculo (opcional) */
+    border: 5px solid white; /* Borda branca */
+    border-radius: 50%; /* Faz o círculo ser redondo */
+    z-index: 1; /* Garante que o círculo fique acima das divs */
+    background-image: url('fotoperfil.jfif'); /* Imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir todo o círculo */
+    background-position: center; /* Centraliza a imagem */
 }
 
 #typingEffect {
@@ -273,3 +348,43 @@ html, body {
 #typingEffect:hover {
     transform: translateY(-5px); /* Move o texto levemente para cima ao passar o mouse */
 }
+css
+const text = "Olá, sou Matheus Castro, tenho 25 anos e trabalho como Técnico de Suporte na Mindworks,|atendendo a Cesan há 3 anos. Sou formado em Técnico de Informática pelo Senac e estou no 3º|período de Análise e Desenvolvimento de Sistemas na FAESA.";
+let index = 0;
+const typingEffectElement = document.getElementById("typingEffect");
+
+function type() {
+    if (index < text.length) {
+        const char = text.charAt(index);
+        if (char === '|') {
+            typingEffectElement.innerHTML += '<br>'; // Substitui | por uma quebra de linha
+        } else {
+            typingEffectElement.innerHTML += char; // Adiciona o caractere normal
+        }
+        index++;
+        setTimeout(type, 20); // Ajuste a velocidade do efeito aqui
+    }
+}
+
+type();
+
+const progressBar = document.getElementById('progressBar');
+
+function animateProgressBar() {
+    let width = 0;
+    const targetWidth = 60; // Percentual de preenchimento desejado
+
+    const interval = setInterval(() => {
+        if (width >= targetWidth) {
+            clearInterval(interval);
+        } else {
+            width++;
+            progressBar.style.width = width + '%'; // Atualiza a largura da barra
+            progressBar.textContent = width + '%'; // Atualiza o texto da barra
+        }
+    }, 20); // Ajuste a velocidade do aumento
+}
+
+animateProgressBar();
+
+js

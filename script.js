@@ -68,20 +68,34 @@ document.querySelectorAll('.navbar a').forEach(anchor => {
         }
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const circle = document.querySelector('.circle');
-    const div1 = document.querySelector('.box.box1');
-    const div2 = document.querySelector('.box.box2');
+// Rolagem suave para as seções ao clicar no menu
+document.querySelectorAll('.navbar a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do link
 
-    function updateCirclePosition() {
-        // Altura da div1
-        const div1Height = div1.offsetHeight;
+        // Obtém o id da âncora clicada
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
 
-        // Define a posição do círculo na linha de divisão entre div1 e div2
-        circle.style.top = (div1Height - circle.offsetHeight / 2) + 'px';
-    }
-
-    // Atualiza a posição do círculo ao carregar e ao redimensionar
-    updateCirclePosition();
-    window.addEventListener('resize', updateCirclePosition);
+        // Rolagem suave para o elemento alvo
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
 });
+
+// Função para redirecionar 'Qualificações' para a div de contato
+const qualificacoesLink = document.querySelector('.navbar a[href="#qualificacoes"]');
+if (qualificacoesLink) {
+    qualificacoesLink.addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do link
+        const targetElement = document.getElementById('qualificacoes'); // Alvo da rolagem
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+}
