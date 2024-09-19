@@ -1,12 +1,14 @@
 * {
     box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+    overflow: hidden; /* Remove a barra de rolagem da janela */
 }
 
 html, body {
     margin: 0;
     padding: 0;
     height: 100%; /* Altura total da tela */
-    overflow: auto; /* Permite a rolagem */
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Esconde a rolagem horizontal, se necessário */
 }
 
 .container {
@@ -72,7 +74,9 @@ html, body {
     background-size: cover; /* Faz a imagem cobrir toda a área da div */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Não repete a imagem */
+   
 }
+
 
 .box2 {
     background-color: #D3D3D3; /* Cinza claro */
@@ -85,6 +89,28 @@ html, body {
     padding: 20px; /* Adiciona espaçamento interno */
     position: relative; /* Para o posicionamento de elementos internos */
 }
+.box2 {
+    position: relative; /* Necessário para que o círculo se posicione corretamente */
+    overflow: visible; /* Permite que o círculo fique visível fora da caixa */
+}
+
+.circle {
+    width: 150px; /* Largura do círculo */
+    height: 150px; /* Altura do círculo */
+    background-color: #000000; /* Cor de fundo do círculo */
+    border: 5px solid #FFFFFF; /* Borda branca */
+    border-radius: 50%; /* Torna o elemento um círculo */
+    position: absolute; /* Posiciona o círculo de forma absoluta */
+    top: 0%; /* Ajuste este valor conforme necessário */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Centraliza completamente */
+    z-index: 20; /* Garante que o círculo fique acima do box1 */
+    background-image: url('fotoperfil.jfif');
+    background-size: cover; /* Faz a imagem cobrir todo o círculo */
+    background-position: center; /* Centraliza a imagem dentro do círculo */
+}
+
+
 
 .progress-container {
     width: 30%; /* Largura da barra */
@@ -248,6 +274,20 @@ html, body {
     text-align: left; /* Alinhamento à esquerda */
     gap: 20px; /* Espaço entre a imagem e o texto */
     margin: 2px; /* Adiciona espaçamento de 5px entre as divs */
+}.box5 {
+    position: relative; /* Para permitir o uso de posicionamento absoluto dos elementos dentro */
+    padding-top: 40px; /* Espaço superior para o título */
+}
+.box5 h3 {
+    position: absolute; /* Posiciona o título em cima dos outros conteúdos */
+    top: 0; /* Fica no topo da div */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o centro */
+    z-index: 10; /* Certifica-se de que o título fique acima dos outros elementos */
+    padding: 10px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5rem; /* Ajuste o tamanho do texto aqui para coincidir com o da Box 4 */
+    font-weight: bold; /* Ajuste o peso da fonte, se necessário */
 }
 
 .box5 p {
@@ -272,4 +312,27 @@ html, body {
 
 #typingEffect:hover {
     transform: translateY(-5px); /* Move o texto levemente para cima ao passar o mouse */
+}
+.encerramento {
+    width: 100%; /* Mantém a largura total da página */
+    text-align: center; /* Centraliza o texto */
+    font-size: 0.8rem; /* Tamanho da fonte um pouco menor que as outras boxes */
+    padding: 10px 0; /* Espaçamento interno reduzido */
+    background-color: #D3D3D3; /* Fundo cinza */
+    color: black; /* Texto preto */
+    margin-top: 20px; /* Aumenta o espaço acima do encerramento */
+    font-family: Arial, sans-serif; /* Define a fonte como Arial */
+    z-index: 10; 
+}
+
+.social-icons {
+    display: flex; /* Exibe os ícones em linha */
+    justify-content: center; /* Centraliza os ícones */
+    gap: 10px; /* Espaçamento entre os ícones */
+    margin-top: 10px; /* Espaço acima dos ícones */
+}
+
+.icon {
+    width: 24px; /* Largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
 }

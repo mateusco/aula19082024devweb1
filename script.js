@@ -99,3 +99,17 @@ if (qualificacoesLink) {
         }
     });
 }
+// Função para redirecionar 'Contato' para a div de encerramento
+const contatoLink = document.querySelector('.navbar a[href="#contato"]');
+if (contatoLink) {
+    contatoLink.addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão do link
+        const targetElement = document.querySelector('.encerramento'); // Alvo da rolagem
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
